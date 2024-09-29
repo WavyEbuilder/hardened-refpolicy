@@ -211,6 +211,10 @@ ifeq "$(DISTRO)" "ubuntu"
 	M4PARAM += -D distro_debian=true
 endif
 
+ifeq "$(DINIT)" "y"
+	M4PARAM += -D init_dinit=true
+endif
+
 ifeq "$(SYSTEMD)" "y"
 	M4PARAM += -D init_systemd=true
 endif

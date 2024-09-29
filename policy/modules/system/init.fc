@@ -27,6 +27,7 @@ ifdef(`distro_gentoo',`
 #
 # /usr
 #
+/usr/bin/dinit  --  gen_context(system_u:object_r:init_exec_t,s0)
 /usr/bin/init(ng)?	--	gen_context(system_u:object_r:init_exec_t,s0)
 /usr/bin/open_init_pty	--	gen_context(system_u:object_r:initrc_exec_t,s0)
 /usr/bin/sepg_ctl	--	gen_context(system_u:object_r:initrc_exec_t,s0)

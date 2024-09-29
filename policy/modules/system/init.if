@@ -95,12 +95,20 @@ interface(`init_script_file',`
 ## </param>
 #
 interface(`init_unit_file',`
-	gen_require(`
-		attribute systemdunit;
-	')
-
-	files_type($1)
-	typeattribute $1 systemdunit;
+  ifdef(`init_systemd',`
+    gen_require(`
+      attribute systemdunit;
+    ')
+    files_type($1)
+    typeattribute $1 systemdunit;
+  ')
+  ifdef(`init_dinit',`
+    gen_require(`
+      attribute dinitunit;
+    ')
+    files_type($1)
+    typeattribute $1 dinitunit;
+  ')
 ')
 
 ########################################
@@ -388,6 +396,10 @@ interface(`init_daemon_domain',`
 		')
 	')
 
+  ifdef(`init_dinit',`
+		init_domain($1, $2)
+	')
+
 	optional_policy(`
 		nscd_use($1)
 	')
@@ -560,6 +572,12 @@ interface(`init_system_domain',`
 		init_domain($1, $2)
 
 		allow initrc_t $1:process2 { nnp_transition nosuid_transition };
+	')
+
+  ifdef(`init_dinit',`
+		init_domain($1, $2)
+
+    allow initrc_t $1:process2 { nnp_transition nosuid_transition };
 	')
 ')
 

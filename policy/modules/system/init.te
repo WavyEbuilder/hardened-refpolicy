@@ -43,6 +43,7 @@ attribute init_script_domain_type;
 attribute init_script_file_type;
 attribute init_run_all_scripts_domain;
 attribute init_linkable_keyring_type;
+attribute dinitunit;
 attribute systemdunit;
 attribute initrc_transition_domain;
 
@@ -133,6 +134,9 @@ files_tmpfs_file(init_tmpfs_t)
 
 type initrc_var_log_t;
 logging_log_file(initrc_var_log_t)
+
+type dinit_unit_t;
+init_unit_file(dinit_unit_t)
 
 type systemd_unit_t;
 init_unit_file(systemd_unit_t)
