@@ -2208,6 +2208,8 @@ systemd_stream_connect_nsresourced(systemd_userdbd_t)
 allow systemd_user_runtime_dir_t self:capability { chown dac_override dac_read_search fowner sys_admin };
 allow systemd_user_runtime_dir_t self:process setfscreate;
 
+auth_use_nsswitch(systemd_user_runtime_dir_t)
+
 domain_obj_id_change_exemption(systemd_user_runtime_dir_t)
 
 allow systemd_user_runtime_dir_t systemd_user_runtime_t:dir manage_dir_perms;
