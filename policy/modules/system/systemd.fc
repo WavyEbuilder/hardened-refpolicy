@@ -130,3 +130,4 @@ ifdef(`init_systemd',`
 ')
 /var/log/journal(/.*)?		gen_context(system_u:object_r:systemd_journal_t,mls_systemhigh)
 /run/log/journal(/.*)?		gen_context(system_u:object_r:systemd_journal_t,mls_systemhigh)
+/run/log/systemd(/.*)?		gen_context(system_u:object_r:systemd_log_t,mls_systemhigh)
