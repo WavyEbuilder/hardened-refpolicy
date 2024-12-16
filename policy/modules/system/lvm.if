@@ -249,3 +249,22 @@ interface(`lvm_admin',`
 	files_search_tmp($1)
 	admin_pattern($1, lvm_tmp_t)
 ')
+
+########################################
+## <summary>
+##      Send to lvm with a unix socket.
+##  Without any additional permissions.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+#
+interface(`lvm_unix_dgram_socket_sendto',`
+        gen_require(`
+                type lvm_t;
+        ')
+
+	allow $1 lvm_t:unix_dgram_socket sendto;
+')

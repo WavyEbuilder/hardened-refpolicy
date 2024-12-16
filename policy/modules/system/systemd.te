@@ -1567,7 +1567,6 @@ systemd_log_parse_environment(systemd_nsresourced_t)
 allow systemd_passwd_agent_t self:capability { chown dac_override sys_tty_config };
 allow systemd_passwd_agent_t self:process { setfscreate setsockcreate signal };
 allow systemd_passwd_agent_t self:unix_dgram_socket create_socket_perms;
-allow systemd_passwd_agent_t lvm_t:unix_dgram_socket sendto;
 
 allow systemd_passwd_agent_t systemd_passwd_var_run_t:{ dir file } watch;
 manage_dirs_pattern(systemd_passwd_agent_t, systemd_passwd_runtime_t, systemd_passwd_runtime_t)
@@ -1615,6 +1614,10 @@ optional_policy(`
 
 optional_policy(`
 	lvm_signull(systemd_passwd_agent_t)
+')
+
+optional_policy(`
+	lvm_unix_dgram_socket_sendto(systemd_passwd_agent_t)
 ')
 
 optional_policy(`
