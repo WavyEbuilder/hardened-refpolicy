@@ -1,0 +1,17 @@
+policy_module(wayland)
+
+########################################
+#
+# Declarations
+#
+
+attribute wayland_compositor_type;
+# The wayland socket is by default privileged. A sandbox engine is required to make applications opt into being unprivileged.
+attribute wayland_client_type;
+attribute wayland_client_unpriv_type;
+
+type wayland_runtime_t;
+type wayland_runtime_unpriv_t;
+
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, sock)
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file)
