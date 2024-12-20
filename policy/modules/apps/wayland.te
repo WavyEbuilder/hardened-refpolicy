@@ -13,5 +13,5 @@ attribute wayland_client_unpriv_type;
 type wayland_runtime_t;
 type wayland_runtime_unpriv_t;
 
-userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, sock)
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket)
 userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file)
