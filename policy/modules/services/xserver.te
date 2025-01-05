@@ -1064,8 +1064,6 @@ allow xserver_unconfined_type { x_domain xserver_t }:x_resource { read write };
 allow xserver_unconfined_type xevent_type:{ x_event x_synthetic_event } { receive send };
 
 # for sddm to use pam for greeter
-gen_user(xdm,, xdm_r system_r, s0, s0)
-
 ifdef(`distro_gentoo',`
 	########################################
 	#
@@ -1102,3 +1100,5 @@ ifdef(`distro_gentoo',`
 		cgmanager_stream_connect(xdm_t)
 	')
 ')
+
+gen_user(xdm,, xdm_r system_r, s0, s0)
