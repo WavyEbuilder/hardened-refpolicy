@@ -143,6 +143,8 @@ fs_getattr_fusefs(bootloader_t)
 fs_unmount_fusefs(bootloader_t)
 fs_unmount_xattr_fs(bootloader_t)
 
+fs_getattr_nsfs_files(bootloader_t)
+
 fstools_manage_runtime_files(bootloader_t)
 
 init_getattr_initctl(bootloader_t)

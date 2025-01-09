@@ -569,6 +569,7 @@ files_dontaudit_read_etc_runtime_files(systemd_generator_t)
 
 fs_list_efivars(systemd_generator_t)
 fs_getattr_all_fs(systemd_generator_t)
+fs_getattr_nsfs_files(systemd_generator_t)
 
 init_create_runtime_files(systemd_generator_t)
 init_manage_runtime_dirs(systemd_generator_t)
@@ -792,6 +793,7 @@ files_read_etc_files(systemd_hostnamed_t)
 files_read_etc_runtime_files(systemd_hostnamed_t)
 
 fs_getattr_all_fs(systemd_hostnamed_t)
+fs_getattr_nsfs_files(systemd_hostnamed_t)
 
 init_delete_runtime_files(systemd_hostnamed_t)
 init_read_runtime_files(systemd_hostnamed_t)
@@ -863,6 +865,7 @@ manage_dirs_pattern(systemd_journal_init_t, systemd_journal_t, systemd_journal_t
 manage_files_pattern(systemd_journal_init_t, systemd_journal_t, systemd_journal_t)
 
 fs_getattr_all_fs(systemd_journal_init_t)
+fs_getattr_nsfs_files(systemd_journal_init_t)
 fs_search_cgroup_dirs(systemd_journal_init_t)
 
 kernel_getattr_proc(systemd_journal_init_t)
@@ -888,6 +891,7 @@ kernel_read_kernel_sysctls(systemd_locale_t)
 files_read_etc_files(systemd_locale_t)
 
 fs_getattr_all_fs(systemd_locale_t)
+fs_getattr_nsfs_files(systemd_locale_t)
 fs_search_cgroup_dirs(systemd_locale_t)
 
 init_stream_connect(systemd_locale_t)
@@ -996,6 +1000,7 @@ files_rw_runtime_dirs(systemd_logind_t)
 fs_getattr_cgroup(systemd_logind_t)
 fs_manage_cgroup_dirs(systemd_logind_t)
 fs_manage_cgroup_files(systemd_logind_t)
+fs_getattr_nsfs_files(systemd_logind_t)
 fs_getattr_tmpfs(systemd_logind_t)
 fs_getattr_tmpfs_dirs(systemd_logind_t)
 fs_list_tmpfs(systemd_logind_t)
@@ -1263,6 +1268,7 @@ files_mmap_read_kernel_modules(systemd_modules_load_t)
 files_read_etc_files(systemd_modules_load_t)
 
 fs_getattr_all_fs(systemd_modules_load_t)
+fs_getattr_nsfs_files(systemd_modules_load_t)
 fs_search_all(systemd_modules_load_t)
 
 modutils_read_module_config(systemd_modules_load_t)
@@ -1549,6 +1555,7 @@ manage_sock_files_pattern(systemd_nsresourced_t, systemd_nsresourced_runtime_t, 
 init_runtime_filetrans(systemd_nsresourced_t, systemd_nsresourced_runtime_t, dir)
 
 fs_getattr_cgroup(systemd_nsresourced_t)
+fs_getattr_nsfs_files(systemd_nsresourced_t)
 
 # for /proc/1/environ
 init_read_state(systemd_nsresourced_t)
@@ -1586,6 +1593,7 @@ dev_write_kmsg(systemd_passwd_agent_t)
 files_read_etc_files(systemd_passwd_agent_t)
 
 fs_getattr_xattr_fs(systemd_passwd_agent_t)
+fs_getattr_nsfs_files(systemd_passwd_agent_t)
 
 selinux_get_enforce_mode(systemd_passwd_agent_t)
 selinux_getattr_fs(systemd_passwd_agent_t)
@@ -1643,6 +1651,7 @@ files_search_var_lib(systemd_pcrphase_t)
 fs_read_efivarfs_files(systemd_pcrphase_t)
 fs_getattr_cgroup(systemd_pcrphase_t)
 fs_search_cgroup_dirs(systemd_pcrphase_t)
+fs_getattr_nsfs_files(systemd_pcrphase_t)
 
 kernel_dontaudit_getattr_proc(systemd_pcrphase_t)
 kernel_read_kernel_sysctls(systemd_pcrphase_t)
@@ -1814,6 +1823,7 @@ files_runtime_filetrans(systemd_sessions_t, systemd_sessions_runtime_t, file)
 
 fs_getattr_all_fs(systemd_sessions_t)
 fs_search_cgroup_dirs(systemd_sessions_t)
+fs_getattr_nsfs_files(systemd_sessions_t)
 fs_search_tmpfs(systemd_sessions_t)
 fs_search_ramfs(systemd_sessions_t)
 
@@ -1848,6 +1858,7 @@ files_read_etc_files(systemd_sysctl_t)
 
 fs_getattr_all_fs(systemd_sysctl_t)
 fs_search_cgroup_dirs(systemd_sysctl_t)
+fs_getattr_nsfs_files(systemd_sysctl_t)
 fs_search_ramfs(systemd_sysctl_t)
 fs_search_tmpfs(systemd_sysctl_t)
 
@@ -1959,6 +1970,7 @@ files_manage_etc_symlinks(systemd_tmpfiles_t)
 fs_list_tmpfs(systemd_tmpfiles_t)
 fs_relabelfrom_tmpfs_dirs(systemd_tmpfiles_t)
 fs_getattr_all_fs(systemd_tmpfiles_t)
+fs_getattr_nsfs_files(systemd_tmpfiles_t)
 fs_search_cgroup_dirs(systemd_tmpfiles_t)
 
 selinux_get_fs_mount(systemd_tmpfiles_t)
@@ -2107,6 +2119,7 @@ files_list_usr(systemd_user_session_type)
 files_watch_etc_symlinks(systemd_user_session_type)
 
 fs_getattr_cgroup(systemd_user_session_type)
+fs_getattr_nsfs_files(systemd_user_session_type)
 fs_getattr_tmpfs(systemd_user_session_type)
 fs_rw_cgroup_files(systemd_user_session_type)
 fs_manage_cgroup_dirs(systemd_user_session_type)
