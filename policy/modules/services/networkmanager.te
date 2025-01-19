@@ -356,6 +356,7 @@ optional_policy(`
 
 optional_policy(`
 	systemd_read_hwdb(NetworkManager_t)
+	systemd_map_hwdb(NetworkManager_t)
 	udev_exec(NetworkManager_t)
 	udev_read_runtime_files(NetworkManager_t)
 ')
