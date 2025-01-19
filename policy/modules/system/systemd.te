@@ -837,6 +837,7 @@ files_etc_filetrans(systemd_hw_t, systemd_hwdb_t, file)
 files_search_runtime(systemd_hw_t)
 
 fs_getattr_all_fs(systemd_hw_t)
+fs_getattr_nsfs_files(systemd_hw_t)
 fs_search_cgroup_dirs(systemd_hw_t)
 
 selinux_get_fs_mount(systemd_hw_t)
