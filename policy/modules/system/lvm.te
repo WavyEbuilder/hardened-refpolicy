@@ -230,6 +230,12 @@ ifdef(`init_systemd',`
 
 	init_rw_stream_sockets(lvm_t)
 
+	# systemd-cryptsetup will attempt to unlock volumes using
+	# previously cached key
+	init_search_keys(lvm_t)
+	kernel_write_key(lvm_t)
+	allow lvm_t self:key setattr;
+
 	miscfiles_read_generic_certs(lvm_t)
 ')
 
