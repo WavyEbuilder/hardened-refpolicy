@@ -236,6 +236,10 @@ ifdef(`init_systemd',`
 	kernel_write_key(lvm_t)
 	allow lvm_t self:key setattr;
 
+	allow lvm_t systemd_passwd_runtime_t:dir manage_dir_perms;
+	allow lvm_t systemd_passwd_runtime_t:file manage_file_perms;
+	allow lvm_t systemd_passwd_runtime_t:sock_file { create unlink };
+
 	miscfiles_read_generic_certs(lvm_t)
 ')
 
