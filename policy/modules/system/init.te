@@ -258,6 +258,16 @@ seutil_read_default_contexts(init_t)
 
 miscfiles_read_localization(init_t)
 
+ifdef(`init_dinit',`
+	kernel_dyntrans_to(init_t)
+
+	# run dinit misc initializations
+	# in the initrc_t domain, as would be
+	# done in traditional sysvinit/upstart.
+	corecmd_bin_domtrans(init_t, initrc_t)
+	corecmd_shell_domtrans(init_t, initrc_t)
+')
+
 ifdef(`init_systemd',`
 	gen_require(`
 		class service { start status stop };
