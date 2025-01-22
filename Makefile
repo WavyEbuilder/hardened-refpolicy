@@ -603,6 +603,7 @@ ifneq "$(DISTRO)" ""
 endif
 	$(verbose) echo "MONOLITHIC ?= n" >> $(headerdir)/build.conf
 	$(verbose) echo "DIRECT_INITRC ?= $(DIRECT_INITRC)" >> $(headerdir)/build.conf
+	$(verbose) echo "DINIT ?= $(DINIT)" >> $(headerdir)/build.conf
 	$(verbose) echo "SYSTEMD ?= $(SYSTEMD)" >> $(headerdir)/build.conf
 	$(verbose) echo "CUSTOM_BUILDOPT ?= $(CUSTOM_BUILDOPT)" >> $(headerdir)/build.conf
 	$(verbose) echo "override UBAC := $(UBAC)" >> $(headerdir)/build.conf
