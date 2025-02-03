@@ -698,6 +698,24 @@ interface(`fs_register_binary_executable_type',`
 
 ########################################
 ## <summary>
+##	Get attributes of a bpf filesystem.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`fs_getattr_bpf',`
+	gen_require(`
+		type bpf_t;
+	')
+
+	allow $1 bpf_t:filesystem getattr;
+')
+
+########################################
+## <summary>
 ##	Mount a bpf filesystem.
 ## </summary>
 ## <param name="domain">
