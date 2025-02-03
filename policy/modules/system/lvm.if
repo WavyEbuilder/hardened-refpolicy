@@ -229,6 +229,26 @@ interface(`lvm_manage_runtime_dirs',`
 	manage_dirs_pattern($1, lvm_runtime_t, lvm_runtime_t)
 ')
 
+########################################
+## <summary>
+##	Create files in /run with the type used for
+##      lvm runtime files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+## <rolecap/>
+#
+interface(`lvm_filetrans_runtime',`
+	gen_require(`
+		type lvm_runtime_t;
+	')
+
+	files_runtime_filetrans($1, lvm_runtime_t, { dir file sock_file })
+')
+
 ######################################
 ## <summary>
 ##	All of the rules required to
