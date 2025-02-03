@@ -231,23 +231,32 @@ interface(`lvm_manage_runtime_dirs',`
 
 ########################################
 ## <summary>
-##	Create lvm dirs in /run with the type used for
-##      lvm runtime dirs.
+##	Create specified objects in generic
+##	runtime directories with the lvm runtime file type.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
 ##	Domain allowed access.
 ##	</summary>
 ## </param>
+## <param name="object_class">
+##	<summary>
+##	Class of the object being created.
+##	</summary>
+## </param>
+## <param name="name" optional="true">
+##	<summary>
+##	The name of the object being created.
+##	</summary>
+## </param>
 ## <rolecap/>
 #
-interface(`lvm_filetrans_runtime_dirs',`
+interface(`lvm_filetrans_runtime',`
 	gen_require(`
 		type lvm_runtime_t;
 	')
 
-	files_runtime_filetrans($1, lvm_runtime_t, dir, "cryptsetup")
-	files_runtime_filetrans($1, lvm_runtime_t, dir, "lvm")
+	files_runtime_filetrans($1, lvm_runtime_t, $2, $3)
 ')
 
 ######################################
