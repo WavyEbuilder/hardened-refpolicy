@@ -133,6 +133,9 @@ optional_policy(`
 ')
 
 optional_policy(`
+	init_get_system_status(policykit_t)
+	systemd_get_user_manager_units_status(policykit_t)
+
 	# for /run/systemd/machines
 	systemd_connect_machined(policykit_t)
 	systemd_read_machines(policykit_t)
