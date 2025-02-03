@@ -1564,6 +1564,7 @@ fs_getattr_cgroup(systemd_nsresourced_t)
 fs_getattr_nsfs_files(systemd_nsresourced_t)
 fs_manage_bpf_dirs(systemd_nsresourced_t)
 fs_manage_bpf_files(systemd_nsresourced_t)
+fs_rw_cgroup_files(systemd_nsresourced_t)
 
 # for /proc/1/environ
 init_read_state(systemd_nsresourced_t)
