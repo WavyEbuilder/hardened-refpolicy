@@ -1569,6 +1569,8 @@ fs_rw_cgroup_files(systemd_nsresourced_t)
 # for /proc/1/environ
 init_read_state(systemd_nsresourced_t)
 
+kernel_getattr_proc(systemd_nsresourced_t)
+
 kernel_read_kernel_sysctls(systemd_nsresourced_t)
 # for /proc/cmdline
 kernel_read_system_state(systemd_nsresourced_t)
