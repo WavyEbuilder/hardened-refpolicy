@@ -231,8 +231,8 @@ interface(`lvm_manage_runtime_dirs',`
 
 ########################################
 ## <summary>
-##	Create files in /run with the type used for
-##      lvm runtime files.
+##	Create lvm dirs in /run with the type used for
+##      lvm runtime dirs.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -241,12 +241,13 @@ interface(`lvm_manage_runtime_dirs',`
 ## </param>
 ## <rolecap/>
 #
-interface(`lvm_filetrans_runtime',`
+interface(`lvm_filetrans_runtime_dirs',`
 	gen_require(`
 		type lvm_runtime_t;
 	')
 
-	files_runtime_filetrans($1, lvm_runtime_t, { dir file sock_file })
+	files_runtime_filetrans($1, lvm_runtime_t, dir, "cryptsetup")
+	files_runtime_filetrans($1, lvm_runtime_t, dir, "lvm")
 ')
 
 ######################################
