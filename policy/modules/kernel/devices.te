@@ -336,6 +336,12 @@ type tpm_device_t;
 dev_node(tpm_device_t)
 
 #
+# Type for /dev/udmabuf, userspace DMA buffer
+#
+type udmabuf_device_t;
+dev_node(udmabuf_device_t)
+
+#
 # uhid_device_t is the type of /dev/uhid -
 # User-space I/O driver support for HID subsystem
 #

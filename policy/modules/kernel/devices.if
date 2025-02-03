@@ -4869,6 +4869,42 @@ interface(`dev_rw_tpm',`
 	rw_chr_files_pattern($1, device_t, tpm_device_t)
 ')
 
+########################################
+## <summary>
+##	Get attributes of the udmabuf device.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`dev_getattr_udmabuf_dev',`
+	gen_require(`
+		type udmabuf_device_t;
+	')
+
+	allow $1 udmabuf_device_t:filesystem getattr;
+')
+
+########################################
+## <summary>
+##	Set attributes of the udmabuf device.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`dev_setattr_udmabuf_dev',`
+	gen_require(`
+		type udmabuf_device_t;
+	')
+
+	allow $1 udmabuf_device_t:filesystem setattr;
+')
+
 #####################
 ## <summary>
 ##	Allow open/read/write uhid device
