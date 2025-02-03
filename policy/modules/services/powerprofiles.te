@@ -12,6 +12,9 @@ type power_profilesd_t;
 type power_profilesd_exec_t;
 init_daemon_domain(power_profilesd_t, power_profilesd_exec_t)
 
+type power_profilesd_var_lib_t;
+files_type(power_profilesd_var_lib_t)
+
 ########################################
 #
 # Local policy
@@ -33,6 +36,10 @@ dbus_connect_system_bus(power_profilesd_t)
 
 files_read_etc_files(power_profilesd_t)
 files_search_var_lib(power_profilesd_t)
+
+manage_dirs_pattern(power_profilesd_t, power_profilesd_var_lib_t, power_profilesd_var_lib_t)
+manage_files_pattern(power_profilesd_t, power_profilesd_var_lib_t, power_profilesd_var_lib_t)
+files_var_lib_filetrans(power_profilesd_t, power_profilesd_var_lib_t, dir)
 
 fs_getattr_xattr_fs(power_profilesd_t)
 
