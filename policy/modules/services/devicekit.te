@@ -173,7 +173,7 @@ optional_policy(`
 	lvm_domtrans(devicekit_disk_t)
 	lvm_manage_runtime_files(devicekit_disk_t)
 	lvm_manage_runtime_dirs(devicekit_disk_t)
-	lvm_filetrans_runtime(devicekit_disk_t)
+	lvm_filetrans_runtime_dirs(devicekit_disk_t)
 ')
 
 optional_policy(`
