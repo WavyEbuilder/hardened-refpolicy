@@ -1548,7 +1548,9 @@ optional_policy(`
 # nsresourced local policy
 #
 
+allow systemd_nsresourced_t self:bpf { map_create map_read map_write prog_load prog_run };
 allow systemd_nsresourced_t self:capability { sys_resource };
+allow systemd_nsresourced_t self:capability2 { bpf perfmon };
 allow systemd_nsresourced_t self:process { getcap signal };
 allow systemd_nsresourced_t systemd_nsresourced_exec_t:file execute_no_trans;
 
