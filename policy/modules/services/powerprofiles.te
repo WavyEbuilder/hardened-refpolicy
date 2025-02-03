@@ -39,6 +39,7 @@ fs_getattr_xattr_fs(power_profilesd_t)
 miscfiles_read_localization(power_profilesd_t)
 
 devicekit_dbus_chat(power_profilesd_t)
+devicekit_dbus_chat_power(power_profilesd_t)
 policykit_dbus_chat(power_profilesd_t)
 systemd_dbus_chat_logind(power_profilesd_t)
 
