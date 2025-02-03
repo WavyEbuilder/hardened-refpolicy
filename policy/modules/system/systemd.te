@@ -1559,6 +1559,7 @@ manage_files_pattern(systemd_nsresourced_t, systemd_nsresourced_runtime_t, syste
 manage_sock_files_pattern(systemd_nsresourced_t, systemd_nsresourced_runtime_t, systemd_nsresourced_runtime_t)
 init_runtime_filetrans(systemd_nsresourced_t, systemd_nsresourced_runtime_t, dir)
 
+fs_getattr_bpf(systemd_nsresourced_t)
 fs_getattr_cgroup(systemd_nsresourced_t)
 fs_getattr_nsfs_files(systemd_nsresourced_t)
 
