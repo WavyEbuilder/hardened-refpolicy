@@ -1677,6 +1677,11 @@ init_read_state(systemd_pcrphase_t)
 init_manage_runtime_files(systemd_pcrphase_t)
 init_manage_var_lib_files(systemd_pcrphase_t)
 
+# DANGEROUS: allows bypassing SELinux restrictions on the filesystem contained on the drive
+# Needed for the --file-system parameter to do a blkid
+# https://github.com/poettering/systemd/blob/main/src/shared/pcrextend-util.c
+storage_raw_read_fixed_disk(systemd_pcrphase_t)
+
 systemd_list_log_dirs(systemd_pcrphase_t)
 systemd_create_log_dirs(systemd_pcrphase_t)
 systemd_create_log_files(systemd_pcrphase_t)
