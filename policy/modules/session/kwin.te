@@ -5,6 +5,8 @@ policy_module(kwin)
 # Declarations
 #
 
+attribute_role plasma_kwin_roles;
+
 type plasma_kwin_t;
 wayland_compositor_domain(plasma_kwin_t)
 type plasma_kwin_exec_t;

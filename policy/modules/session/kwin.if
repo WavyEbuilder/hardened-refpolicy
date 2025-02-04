@@ -1,1 +1,48 @@
 ## <summary>KDE Plasma window manager and Wayland compositor.</summary>
+
+########################################
+## <summary>
+##	Role access for plasma_kwin.
+## </summary>
+## <param name="role_prefix">
+##	<summary>
+##	The prefix of the user role (e.g., user
+##	is the prefix for user_r).
+##	</summary>
+## </param>
+## <param name="user_domain">
+##	<summary>
+##	User domain for the role.
+##	</summary>
+## </param>
+## <param name="user_exec_domain">
+##	<summary>
+##	User exec domain for execute and transition access.
+##	</summary>
+## </param>
+## <param name="role">
+##	<summary>
+##	Role allowed access
+##	</summary>
+## </param>
+#
+template(`plasma_kwin_role',`
+	gen_require(`
+		type plasma_kwin_t, plasma_kwin_exec_t;
+		attribute_role plasma_kwin_roles;
+	')
+
+	########################################
+	#
+	# Declarations
+	#
+
+	roleattribute $4 plasma_kwin_roles;
+
+	########################################
+	#
+	# Policy
+	#
+
+	domtrans_pattern($3, plasma_kwin_exec_t, plasma_kwin_t)
+')
