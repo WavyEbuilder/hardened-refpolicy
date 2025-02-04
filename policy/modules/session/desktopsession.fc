@@ -1,0 +1,1 @@
+/usr/share/sddm/scripts(/.*)?	--	gen_context(system_u:object_r:desktop_session_exec_t,s0)
