@@ -8,10 +8,29 @@ policy_module(wayland)
 attribute wayland_compositor_type;
 # The wayland socket is by default privileged. A sandbox engine is required to make applications opt into being unprivileged.
 attribute wayland_client_type;
-attribute wayland_client_unpriv_type;
+attribute wayland_client_unpriv_type; # For use by clients only allowed to talk through security_context restricted sockets
 
 type wayland_runtime_t;
-type wayland_runtime_unpriv_t;
+type wayland_runtime_unpriv_t; # For use by sandbox engines implementing the security_context protocol
 
-userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket)
-userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file)
+# Compositors may make more privileged sockets in $XDG_RUNTIME_DIR, so let's hardcode in WAYLAND_DISPLAY so we can give other sockets created a higher level of privilege.
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-0")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-1")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-2")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-3")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-4")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-5")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-6")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-7")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-8")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, socket, "wayland-9")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-0.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-1.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-2.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-3.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-4.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-5.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-6.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-7.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-8.lock")
+userdom_user_runtime_filetrans(wayland_compositor_type, wayland_runtime_t, file, "wayland-9.lock")
