@@ -49,4 +49,6 @@ systemd_use_logind_fds(wayland_compositor)
 
 files_read_usr_files(wayland_compositor)
 
+# Fonts
 miscfiles_read_fonts(wayland_compositor)
+xserver_use_user_fonts(wayland_compositor)
