@@ -798,10 +798,6 @@ optional_policy(`
 ')
 
 optional_policy(`
-	plasma_kwin_role(sysadm, sysadm_t, sysadm_application_exec_domain, sysadm_r)
-')
-
-optional_policy(`
 	plymouthd_admin(sysadm_t, sysadm_r)
 ')
 
