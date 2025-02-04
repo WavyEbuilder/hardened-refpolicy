@@ -35,5 +35,14 @@ userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "way
 userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-8.lock")
 userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-9.lock")
 
+##############################
+#
+# Local Policy
+#
+
 # GPU Access
 dev_rw_dri(wayland_compositor)
+
+# For seats
+# TODO: seatd support (requires seatd policy)
+systemd_use_logind_fds(wayland_compositor)
