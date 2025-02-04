@@ -48,3 +48,5 @@ dev_rw_dri(wayland_compositor)
 systemd_use_logind_fds(wayland_compositor)
 
 files_read_usr_files(wayland_compositor)
+
+miscfiles_read_fonts(wayland_compositor)
