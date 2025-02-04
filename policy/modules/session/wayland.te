@@ -46,3 +46,5 @@ dev_rw_dri(wayland_compositor)
 # For seats
 # TODO: seatd support (requires seatd policy)
 systemd_use_logind_fds(wayland_compositor)
+
+files_read_usr_files(wayland_compositor)
