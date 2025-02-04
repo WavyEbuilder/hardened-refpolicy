@@ -1,1 +1,57 @@
 ## <summary>Policy for wayland desktops.</summary>
+
+#########################################
+## <summary>
+##	Manage the Wayland socket.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`wayland_compositor_domain',`
+	gen_require(`
+		attribute wayland_compositor;
+	')
+
+	typeattribute $1 wayland_compositor;
+')
+
+#########################################
+## <summary>
+##	Connect and talk over the Wayland
+##	socket.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`wayland_client_domain',`
+	gen_require(`
+		attribute wayland_client;
+	')
+
+	typeattribute $1 wayland_client;
+')
+
+#########################################
+## <summary>
+##	Connect and talk over unprivileged
+##	Wayland sockets.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`wayland_client_unpriv_domain',`
+	gen_require(`
+		attribute wayland_client_unpriv;
+	')
+
+	typeattribute $1 wayland_client_unpriv;
+')
