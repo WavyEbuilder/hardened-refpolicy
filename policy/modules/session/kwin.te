@@ -1,0 +1,16 @@
+policy_module(kwin)
+
+##############################
+#
+# Declarations
+#
+
+type plasma_kwin_t;
+wayland_compositor_domain(plasma_kwin_t)
+type plasma_kwin_exec_t;
+userdom_user_application_domain(plasma_kwin_t, plasma_kwin_exec_t)
+
+##############################
+#
+# Local Policy
+#
