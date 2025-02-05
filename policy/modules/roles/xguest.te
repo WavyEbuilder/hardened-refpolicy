@@ -98,6 +98,10 @@ optional_policy(`
 ')
 
 optional_policy(`
+	plasma_kscreenlocker_role(xguest, xguest_t, xguest_application_exec_domain, xguest_r)
+')
+
+optional_policy(`
 	plasma_kwin_role(xguest, xguest_t, xguest_application_exec_domain, xguest_r)
 ')
 
