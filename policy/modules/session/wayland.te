@@ -55,3 +55,5 @@ files_read_usr_files(wayland_compositor)
 # Fonts
 miscfiles_read_fonts(wayland_compositor)
 xserver_use_user_fonts(wayland_compositor)
+
+xserver_rw_mesa_shader_cache(wayland_compositor)
