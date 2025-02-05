@@ -22,3 +22,7 @@ userdom_user_application_domain(plasma_kwin_t, plasma_kwin_exec_t)
 
 # For /etc/machine-id
 files_read_etc_runtime_files(plasma_kwin_t)
+
+# For nightlight plugin
+# TODO: maybe make this a tunable?
+files_read_etc_files(plasma_kwin_t)
