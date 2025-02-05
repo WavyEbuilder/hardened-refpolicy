@@ -32,3 +32,7 @@ miscfiles_read_localization(plasma_kscreenlocker_t)
 manage_files_pattern(plasma_kscreenlocker_t, plasma_kscreenlocker_cache_t, plasma_kscreenlocker_cache_t)
 manage_dirs_pattern(plasma_kscreenlocker_t, plasma_kscreenlocker_cache_t, plasma_kscreenlocker_cache_t)
 xdg_cache_filetrans(plasma_kscreenlocker_t, plasma_kscreenlocker_cache_t, dir, "kscreenlocker_greet")
+
+optional_policy(`
+	devicekit_dbus_chat_power(plasma_kscreenlocker_t)
+')
