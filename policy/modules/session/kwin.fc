@@ -2,5 +2,7 @@
 /usr/bin/kwin_wayland_wrapper	-- gen_context(system_u:object_r:plasma_kwin_exec_t,s0)
 /usr/bin/kwin_x11		-- gen_context(system_u:object_r:plasma_kwin_exec_t,s0)
 
+HOME_DIR/\.cache/kwin(/.*)?	gen_context(system_u:object_r:plasma_kwin_xdg_cache_t,s0)
 HOME_DIR/\.config/kwinoutputconfig.json	--	gen_context(system_u:object_r:plasma_kwin_xdg_config_t,s0)
 HOME_DIR/\.config/kwinrc		--	gen_context(system_u:object_r:plasma_kwin_xdg_config_t,s0)
+HOME_DIR/\.local/share/kwin(/.*)?	gen_context(system_u:object_r:plasma_kwin_xdg_data_t,s0)

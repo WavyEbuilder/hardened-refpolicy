@@ -15,9 +15,14 @@ role plasma_kwin_roles types plasma_kwin_t;
 type plasma_kwin_exec_t;
 userdom_user_application_domain(plasma_kwin_t, plasma_kwin_exec_t)
 
+type plasma_kwin_xdg_cache_t;
+xdg_cache_content(plasma_kwin_xdg_cache_t)
+
 type plasma_kwin_xdg_config_t;
 xdg_config_content(plasma_kwin_xdg_config_t)
 
+type plasma_kwin_xdg_data_t;
+xdg_data_content(plasma_kwin_xdg_data_t)
 ##############################
 #
 # Local Policy
@@ -30,7 +35,15 @@ files_read_etc_runtime_files(plasma_kwin_t)
 # TODO: maybe make this a tunable?
 files_read_etc_files(plasma_kwin_t)
 
+manage_dirs_pattern(plasma_kwin_t, plasma_kwin_xdg_cache_t, plasma_kwin_xdg_cache_t)
+manage_files_pattern(plasma_kwin_t, plasma_kwin_xdg_cache_t, plasma_kwin_xdg_cache_t)
+xdg_cache_filetrans(plasma_kwin_t, plasma_kwin_xdg_cache_t, dir, "kwin")
+
 manage_dirs_pattern(plasma_kwin_t, plasma_kwin_xdg_config_t, plasma_kwin_xdg_config_t)
 manage_files_pattern(plasma_kwin_t, plasma_kwin_xdg_config_t, plasma_kwin_xdg_config_t)
 xdg_config_filetrans(plasma_kwin_t, plasma_kwin_xdg_config_t, file, "kwinoutputconfig.json")
 xdg_config_filetrans(plasma_kwin_t, plasma_kwin_xdg_config_t, file, "kwinrc")
+
+manage_dirs_pattern(plasma_kwin_t, plasma_kwin_xdg_data_t, plasma_kwin_xdg_data_t)
+manage_files_pattern(plasma_kwin_t, plasma_kwin_xdg_data_t, plasma_kwin_xdg_data_t)
+xdg_data_filetrans(plasma_kwin_t, plasma_kwin_xdg_data_t, dir, "kwin")
