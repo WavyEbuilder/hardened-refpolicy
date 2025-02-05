@@ -22,7 +22,7 @@ xdg_cache_content(plasma_kscreenlocker_cache_t)
 #
 # Local Policy
 #
-auth_domtrans_chk_passwd(plasma_kscreenlocker_t)
+auth_use_pam(plasma_kscreenlocker_t)
 systemd_dbus_chat_logind(plasma_kscreenlocker_t)
 
 # For /etc/machine-id
