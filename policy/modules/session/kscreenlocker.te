@@ -15,9 +15,16 @@ role plasma_kscreenlocker_roles types plasma_kscreenlocker_t;
 type plasma_kscreenlocker_exec_t;
 userdom_user_application_domain(plasma_kscreenlocker_t, plasma_kscreenlocker_exec_t)
 
+type plasma_kscreenlocker_cache_t;
+xdg_cache_content(plasma_kscreenlocker_cache_t)
+
 ##############################
 #
 # Local Policy
 #
 auth_domtrans_chk_passwd(plasma_kscreenlocker_t)
 systemd_dbus_chat_logind(plasma_kscreenlocker_t)
+
+manage_files_pattern(plasma_kscreenlocker_t, plasma_kscreenlocker_cache_t, plasma_kscreenlocker_cache_t)
+manage_dirs_pattern(plasma_kscreenlocker_t, plasma_kscreenlocker_cache_t, plasma_kscreenlocker_cache_t)
+xdg_cache_filetrans(plasma_kscreenlocker_t, plasma_kscreenlocker_cache_t, dir, "kscreenlocker_greet")
