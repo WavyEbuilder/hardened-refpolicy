@@ -26,7 +26,8 @@ auth_domtrans_chk_passwd(plasma_kscreenlocker_t)
 systemd_dbus_chat_logind(plasma_kscreenlocker_t)
 
 # For /etc/machine-id
-files_read_etc_runtime_files(plasma_kwin_t)
+files_read_etc_runtime_files(plasma_kscreenlocker_t)
+miscfiles_read_localization(plasma_kscreenlocker_t)
 
 manage_files_pattern(plasma_kscreenlocker_t, plasma_kscreenlocker_cache_t, plasma_kscreenlocker_cache_t)
 manage_dirs_pattern(plasma_kscreenlocker_t, plasma_kscreenlocker_cache_t, plasma_kscreenlocker_cache_t)
