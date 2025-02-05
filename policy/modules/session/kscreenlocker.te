@@ -20,3 +20,4 @@ userdom_user_application_domain(plasma_kscreenlocker_t, plasma_kscreenlocker_exe
 # Local Policy
 #
 auth_domtrans_chk_passwd(plasma_kscreenlocker_t)
+systemd_dbus_chat_logind(plasma_kscreenlocker_t)
