@@ -23,6 +23,7 @@ xdg_config_content(plasma_kwin_xdg_config_t)
 
 type plasma_kwin_xdg_data_t;
 xdg_data_content(plasma_kwin_xdg_data_t)
+
 ##############################
 #
 # Local Policy
@@ -47,3 +48,6 @@ xdg_config_filetrans(plasma_kwin_t, plasma_kwin_xdg_config_t, file, "kwinrc")
 manage_dirs_pattern(plasma_kwin_t, plasma_kwin_xdg_data_t, plasma_kwin_xdg_data_t)
 manage_files_pattern(plasma_kwin_t, plasma_kwin_xdg_data_t, plasma_kwin_xdg_data_t)
 xdg_data_filetrans(plasma_kwin_t, plasma_kwin_xdg_data_t, dir, "kwin")
+
+# kwin executes the screenlocker when bound to do so with a shortcut
+session_domtrans_plasma_kscreenlocker(plasma_kwin_t)

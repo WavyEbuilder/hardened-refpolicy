@@ -46,3 +46,23 @@ template(`plasma_kscreenlocker_role',`
 
 	domtrans_pattern($3, plasma_kscreenlocker_exec_t, plasma_kscreenlocker_t)
 ')
+
+########################################
+## <summary>
+##	Run kscreenlocker_greet to lock the
+##      session.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed to transition.
+##	</summary>
+## </param>
+#
+interface(`session_domtrans_plasma_kscreenlocker',`
+	gen_require(`
+		type plasma_kscreenlocker_t, plasma_kscreenlocker_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, plasma_kscreenlocker_exec_t, plasma_kscreenlocker_t)
+')
