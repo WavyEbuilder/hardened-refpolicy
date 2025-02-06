@@ -26,7 +26,12 @@ interface(`wayland_compositor_domain',`
 ## <param name="domain">
 ##	<summary>
 ##	Domain allowed access.
-##	</summary>
+## 	</summary>
+## </param>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+## 	</summary>
 ## </param>
 #
 interface(`wayland_client_domain',`
@@ -35,6 +40,7 @@ interface(`wayland_client_domain',`
 	')
 
 	typeattribute $1 wayland_client;
+	typeattribute $2 wayland_client_tmpfs_t;
 ')
 
 #########################################
@@ -47,6 +53,11 @@ interface(`wayland_client_domain',`
 ##	Domain allowed access.
 ##	</summary>
 ## </param>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+## 	</summary>
+## </param>
 #
 interface(`wayland_client_unpriv_domain',`
 	gen_require(`
@@ -54,4 +65,5 @@ interface(`wayland_client_unpriv_domain',`
 	')
 
 	typeattribute $1 wayland_client_unpriv;
+	typeattribute $2 wayland_client_tmpfs_t;
 ')
