@@ -37,6 +37,7 @@ interface(`wayland_compositor_domain',`
 interface(`wayland_client_domain',`
 	gen_require(`
 		attribute wayland_client;
+		attribute wayland_client_tmpfs_type;
 	')
 
 	typeattribute $1 wayland_client;
@@ -62,8 +63,9 @@ interface(`wayland_client_domain',`
 interface(`wayland_client_unpriv_domain',`
 	gen_require(`
 		attribute wayland_client_unpriv;
+		attribute wayland_client_tmpfs_type;
 	')
 
 	typeattribute $1 wayland_client_unpriv;
-	typeattribute $2 wayland_client_tmpfs_t;
+	typeattribute $2 wayland_client_tmpfs_type;
 ')
