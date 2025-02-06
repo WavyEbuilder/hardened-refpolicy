@@ -40,7 +40,7 @@ interface(`wayland_client_domain',`
 	')
 
 	typeattribute $1 wayland_client;
-	typeattribute $2 wayland_client_tmpfs_t;
+	typeattribute $2 wayland_client_tmpfs_type;
 ')
 
 #########################################
