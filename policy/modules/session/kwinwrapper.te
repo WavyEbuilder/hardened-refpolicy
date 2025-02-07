@@ -20,5 +20,7 @@ userdom_user_application_domain(plasma_kwin_wrapper_t, plasma_kwin_wrapper_exec_
 # Local Policy
 #
 
+miscfiles_read_localization(plasma_kwin_wrapper_t)
+
 # kwin_wayland_wrapper executes kwin_wayland
 session_domtrans_plasma_kwin(plasma_kwin_wrapper_t)
