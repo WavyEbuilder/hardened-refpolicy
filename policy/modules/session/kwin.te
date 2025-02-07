@@ -49,5 +49,7 @@ manage_dirs_pattern(plasma_kwin_t, plasma_kwin_xdg_data_t, plasma_kwin_xdg_data_
 manage_files_pattern(plasma_kwin_t, plasma_kwin_xdg_data_t, plasma_kwin_xdg_data_t)
 xdg_data_filetrans(plasma_kwin_t, plasma_kwin_xdg_data_t, dir, "kwin")
 
+miscfiles_read_localization(plasma_kwin_t)
+
 # kwin executes the screenlocker when bound to do so with a shortcut
 session_domtrans_plasma_kscreenlocker(plasma_kwin_t)
