@@ -106,6 +106,10 @@ optional_policy(`
 ')
 
 optional_policy(`
+	xwayland_role(xguest, xguest_t, xguest_application_exec_domain, xguest_r)
+')
+
+optional_policy(`
 	tunable_policy(`xguest_connect_network',`
 		kernel_read_network_state(xguest_t)
 
