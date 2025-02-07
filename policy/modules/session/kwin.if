@@ -45,6 +45,7 @@ template(`plasma_kwin_role',`
 	#
 
 	domtrans_pattern($3, plasma_kwin_exec_t, plasma_kwin_t)
+	ps_process_pattern($3, plasma_kwin_t)
 ')
 
 ########################################

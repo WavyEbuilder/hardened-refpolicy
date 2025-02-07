@@ -45,6 +45,7 @@ template(`plasma_kscreenlocker_role',`
 	#
 
 	domtrans_pattern($3, plasma_kscreenlocker_exec_t, plasma_kscreenlocker_t)
+	ps_process_pattern($3, plasma_kscreenlocker_t)
 ')
 
 ########################################

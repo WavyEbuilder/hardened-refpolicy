@@ -45,4 +45,5 @@ template(`plasma_kwin_wrapper_role',`
 	#
 
 	domtrans_pattern($3, plasma_kwin_wrapper_exec_t, plasma_kwin_wrapper_t)
+	ps_process_pattern($3, plasma_kwin_wrapper_t)
 ')

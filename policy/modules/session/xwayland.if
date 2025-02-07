@@ -45,4 +45,5 @@ template(`xwayland_role',`
 	#
 
 	domtrans_pattern($3, xwayland_exec_t, xwayland_t)
+	ps_process_pattern($3, xwayland_t)
 ')
