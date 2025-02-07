@@ -22,27 +22,11 @@ attribute wayland_client_tmpfs_type;
 # Local Policy
 #
 
-# Compositors may make more privileged sockets in $XDG_RUNTIME_DIR, so let's hardcode in WAYLAND_DISPLAY so we can give other sockets created a higher level of privilege.
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-0")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-1")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-2")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-3")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-4")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-5")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-6")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-7")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-8")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, socket, "wayland-9")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-0.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-1.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-2.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-3.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-4.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-5.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-6.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-7.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-8.lock")
-userdom_user_runtime_filetrans(wayland_compositor, wayland_runtime_t, file, "wayland-9.lock")
+allow wayland_compositor wayland_client_tmpfs_type:file { mmap_rw_inherited_file_perms };
+allow wayland_compositor wayland_client:fd use;
+allow wayland_compositor wayland_client_unpriv:fd use;
+
+wayland_create_wayland_runtime(wayland_compositor)
 
 # GPU Access
 dev_rw_dri(wayland_compositor)
@@ -62,7 +46,3 @@ xserver_use_user_fonts(wayland_compositor)
 
 xserver_read_xkb_libs(wayland_compositor)
 xserver_rw_mesa_shader_cache(wayland_compositor)
-
-allow wayland_compositor wayland_client_tmpfs_type:file { mmap_rw_inherited_file_perms };
-allow wayland_compositor wayland_client:fd use;
-allow wayland_compositor wayland_client_unpriv:fd use;

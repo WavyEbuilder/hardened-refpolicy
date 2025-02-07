@@ -69,3 +69,43 @@ interface(`wayland_client_unpriv_domain',`
 	typeattribute $1 wayland_client_unpriv;
 	typeattribute $2 wayland_client_tmpfs_type;
 ')
+
+
+#########################################
+## <summary>
+## 	Create wayland runtime objects.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`wayland_create_wayland_runtime',`
+	gen_require(`
+		type wayland_runtime_t;
+	')
+
+	# Compositors may make more privileged sockets in $XDG_RUNTIME_DIR, so let's
+	# hardcode in WAYLAND_DISPLAY so we can give other sockets created a higher level of privilege.
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-0")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-1")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-2")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-3")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-4")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-5")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-6")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-7")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-8")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, socket, "wayland-9")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-0.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-1.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-2.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-3.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-4.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-5.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-6.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-7.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-8.lock")
+	userdom_user_runtime_filetrans($1, wayland_runtime_t, file, "wayland-9.lock")
+')
