@@ -47,3 +47,23 @@ template(`xwayland_role',`
 	domtrans_pattern($3, xwayland_exec_t, xwayland_t)
 	ps_process_pattern($3, xwayland_t)
 ')
+
+
+########################################
+## <summary>
+##	Run Xwayland in the xwayland domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed to transition.
+##	</summary>
+## </param>
+#
+interface(`session_domtrans_xwayland',`
+	gen_require(`
+		type xwayland_t, xwayland_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, xwayland_exec_t, xwayland_t)
+')
