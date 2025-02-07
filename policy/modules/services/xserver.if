@@ -1601,6 +1601,36 @@ interface(`xserver_read_tmp_files',`
 
 ########################################
 ## <summary>
+##	Create an object in the tmp directories, with the
+##      xserver_tmp_t type using a type transition.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+## <param name="object">
+##	<summary>
+##	The object class of the object being created.
+##	</summary>
+## </param>
+## <param name="name" optional="true">
+##	<summary>
+##	The name of the object being created.
+##	</summary>
+## </param>
+#
+interface(`xserver_filetrans_xserver_tmp',`
+	gen_require(`
+		type xserver_tmp_t;
+	')
+
+	manage_files_pattern($1, xserver_tmp_t, xserver_tmp_t)
+	files_tmp_filetrans($1, xserver_tmp_t, $2, $3)
+')
+
+########################################
+## <summary>
 ##      talk to xserver_t by dbus
 ## </summary>
 ## <param name="domain">

@@ -20,9 +20,14 @@ userdom_user_application_domain(plasma_kwin_wrapper_t, plasma_kwin_wrapper_exec_
 # Local Policy
 #
 
+allow plasma_kwin_wrapper_t self:process getsched;
+allow plasma_kwin_wrapper_t self:fifo_file read_fifo_file_perms;
+
 miscfiles_read_localization(plasma_kwin_wrapper_t)
 
 # kwin_wayland_wrapper executes kwin_wayland
 session_domtrans_plasma_kwin(plasma_kwin_wrapper_t)
 # kwin_wayland_wrapper sets up the XWayland socket
 xserver_create_xdm_tmp_sockets(plasma_kwin_wrapper_t)
+# for /tmp/.X0-lock
+xserver_filetrans_xserver_tmp(plasma_kwin_wrapper_t, file)
