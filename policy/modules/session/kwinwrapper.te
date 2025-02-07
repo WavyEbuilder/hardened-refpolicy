@@ -1,0 +1,24 @@
+policy_module(kwinwrapper)
+
+##############################
+#
+# Declarations
+#
+
+attribute_role plasma_kwin_wrapper_roles;
+
+type plasma_kwin_wrapper_t;
+wayland_compositor_domain(plasma_kwin_wrapper_t)
+
+role plasma_kwin_wrapper_roles types plasma_kwin_wrapper_t;
+
+type plasma_kwin_wrapper_exec_t;
+userdom_user_application_domain(plasma_kwin_wrapper_t, plasma_kwin_wrapper_exec_t)
+
+##############################
+#
+# Local Policy
+#
+
+# kwin_wayland_wrapper executes kwin_wayland
+session_domtrans_plasma_kwin(plasma_kwin_wrapper_t)

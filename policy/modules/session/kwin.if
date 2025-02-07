@@ -46,3 +46,23 @@ template(`plasma_kwin_role',`
 
 	domtrans_pattern($3, plasma_kwin_exec_t, plasma_kwin_t)
 ')
+
+########################################
+## <summary>
+##	Run kwin to launch the plasma
+##      window manager.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed to transition.
+##	</summary>
+## </param>
+#
+interface(`session_domtrans_plasma_kwin',`
+	gen_require(`
+		type plasma_kwin_t, plasma_kwin_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, plasma_kwin_exec_t, plasma_kwin_t)
+')

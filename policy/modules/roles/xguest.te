@@ -106,6 +106,10 @@ optional_policy(`
 ')
 
 optional_policy(`
+	plasma_kwin_wrapper_role(xguest, xguest_t, xguest_application_exec_domain, xguest_r)
+')
+
+optional_policy(`
 	xwayland_role(xguest, xguest_t, xguest_application_exec_domain, xguest_r)
 ')
 
