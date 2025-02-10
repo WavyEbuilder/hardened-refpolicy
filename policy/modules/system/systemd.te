@@ -1045,6 +1045,9 @@ init_stop_system(systemd_logind_t)
 
 miscfiles_read_localization(systemd_logind_t)
 
+# for memory pressure
+kernel_read_psi(systemd_logind_t)
+
 locallogin_read_state(systemd_logind_t)
 
 seutil_libselinux_linked(systemd_logind_t)
