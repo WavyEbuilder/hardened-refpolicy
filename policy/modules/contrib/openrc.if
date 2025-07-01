@@ -1,1 +1,34 @@
-## <summary>OpenRC is an init system</summary>
+## <summary>openrc components (not PID 1)</summary>
+
+#########################################
+## <summary>
+##      Template for openrc --user per-role domains.
+## </summary>
+## <param name="prefix">
+##      <summary>
+##      Prefix for generated types
+##      </summary>
+## </param>
+## <param name="role">
+##      <summary>
+##      The user role.
+##      </summary>
+## </param>
+## <param name="userdomain">
+##      <summary>
+##      The user domain for the role.
+##      </summary>
+## </param>
+#
+template(`openrc_role_template',`
+	#################################
+	#
+	# Declarations
+	#
+	type $1_openrc_t;
+	init_pgm_spec_user_daemon_domain($1_openrc_t)
+	domain_user_exemption_target($1_openrc_t)
+	userdom_application_exec_domain($1_openrc_t, $1)
+	ubac_constrained($1_openrc_t)
+	role $2 types { $1_openrc_t };
+')

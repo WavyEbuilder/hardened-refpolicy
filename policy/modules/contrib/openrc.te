@@ -1,5 +1,12 @@
 policy_module(openrc, 0.1)
 
+type openrc_user_t;
+type openrc_user_exec_t;
+init_system_domain(openrc_user_t, openrc_user_exec_t)
+
+type openrc_user_initrc_exec_t;
+init_script_file(openrc_user_initrc_exec_t)
+
 type openrc_cgroup_release_t;
 domain_type(openrc_cgroup_release_t)
 
